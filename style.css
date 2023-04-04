@@ -1,0 +1,573 @@
+body {
+    margin: 0;
+
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    user-select: none;
+
+    background-color: #161313;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+.page {
+    min-height: 100vh;
+    color: #fff;
+
+    position: relative;
+}
+
+/*Header
+==================*/
+
+header {
+    width: 100%;
+    height: 100vh;
+}
+
+.header-content {
+    width: 100%;
+    padding-top: 2rem;
+
+    position: relative;
+
+    perspective: 300px;
+}
+
+.title {
+    display: block;
+    padding: 1rem;
+
+    position: absolute;
+    top: 20%; 
+    left: 50%;
+    transform: translate3d(-50%, -20%, 0); 
+
+    background-color: rgba(255, 255, 255, .4);
+
+    font-size: 3rem;
+    color: #a5040c;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    animation: closer 23s infinite alternate;
+}
+
+.header-video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.nav {
+    width: 40%;
+    
+    margin: 1rem;
+
+    position: absolute;
+    top: -1rem;
+    right: 0;
+   
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 1rem;
+    line-height: 1.8;
+    letter-spacing: 3px;
+    list-style-type: none;
+
+    transition: all .5s;
+}
+
+.nav-item {
+    display: inline-block;
+    
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-item:hover {
+    color: #a5040c;
+    
+}
+
+.nav-item:active {
+    color: #863d41;
+
+}
+
+/*Main. Section
+===============*/
+
+.section {
+    width: 100%;
+
+    margin-top: 3rem;
+    padding: 1rem;
+
+    position: relative;
+}
+
+.section-title {
+    margin-bottom: 1rem;
+
+    text-align: center;
+    font-size: 2rem;
+    color: #a5040c;
+}
+
+.section-text {
+    margin-top: 2rem;
+    color: #fff;
+}
+
+/*Konzerte
+===============*/
+
+.table-konzerte {
+    width: 100%;
+
+    margin-top: 2rem;
+
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table-konzerte td {
+    padding: 1rem;
+
+    text-align: center;
+}
+
+.table-konzerte tr:nth-child(even) {
+    background-color: #201b1b;
+}
+    
+.btn {
+    display: inline-block;
+
+    padding: .5rem 1.5rem;
+
+    position: relative;
+
+    border: 3px solid #a5040c;
+    border-radius: 5px;
+
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: all .5s;
+}
+
+.btn span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn::after {
+    content: "";
+
+    width: 0;
+    height: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background-color: #a5040c;
+
+    transition: all .5s;
+}
+
+.btn:hover {
+    color: #000000;
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+
+/*Alben
+===============*/
+
+.alben {
+    width: 100%;
+
+    margin: 2rem auto;
+    padding-top: 1rem;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.albom {
+    padding: .5rem;
+
+    position: relative;
+}
+
+.front {
+    display: block;
+
+    position: relative;
+    bottom: 0;
+}
+    
+.albom::before,
+.albom::after {
+    content: "";
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    border: 2px solid #a5040c;
+    z-index: -1;
+
+    transition: all .4s ease-in-out;
+}
+   
+.albom::before {
+        top: -.5rem;
+        left: -.5rem;
+
+        background-color: #a5040c;
+}
+
+.albom::after {
+    bottom: -.5rem;
+    right: -.5rem;
+}
+
+
+.albom:hover::before {
+    top: .5rem;
+    left: .5rem;
+    
+    background-color: #161313;
+}
+
+.albom:hover:after {
+    bottom: .5rem;
+    right: .5rem;
+    background-color: #a5040c;
+}
+
+/*Modal
+===============*/
+
+.modal {
+    display: none;
+}
+
+.modal-1:target,
+.modal-2:target {
+    display: block;
+     
+    width: 55%;
+    height: 100vh;
+
+    padding: 1rem 2rem;
+
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    background-color: #201b1b;
+}
+
+.modal-1:target {
+    right: 0;
+    
+    animation: modal-1 1s ease;
+}
+
+.modal-2:target {
+    left: 0;
+    
+    animation: modal-2 1s ease;
+}
+
+.modal-content {
+    height: 100%;
+    position: relative;
+}
+
+.modal-title {
+    text-transform: uppercase;
+}
+
+.close {
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    transform: translateY(-50%);
+
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-2-close {
+    left: calc(100% - 1rem);
+}
+
+.close:hover {
+    color: #fff;
+}
+
+.modal-list {
+   margin-left: 2rem;
+   
+   column-count: 2;
+}
+
+.modal-icons-flex {
+    width: 100%;
+    
+    padding-left: 1rem;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    background-color: #a5040c;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.modal-icons {
+    width: 80%;
+
+    margin-left: 2rem;
+
+    position: absolute;
+    bottom: 50%;
+    left: 20%;
+    transform: translateY(50%);
+}
+
+.modal-btn {
+    display: inline-block;
+    margin-left: 1rem;
+
+    font-size: 1rem;
+    color: #fff;
+}
+
+.modal-btn:hover {
+    color: #161313;
+}
+
+
+/*Videos
+===============*/
+
+.video-flex {
+    width: 100%;
+    height: 60vh;
+     
+    margin: 2rem auto;
+    padding: 1rem;
+
+    position: relative;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.video {
+    width: 40%;
+    height: 350px;
+
+    position: absolute;
+
+    background-color: #fff;
+}
+
+.video video {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    object-fit: cover;
+
+    transition: all 7s;
+}
+
+.video:hover {
+    z-index: 7;
+    cursor: pointer;
+}
+
+#video-1 {
+    left: 1rem;
+    top: 2rem;
+}
+
+#video-2 {
+    left: 4rem;
+    top: 0rem;
+}
+
+#video-3 {
+    left: 10rem;
+    top: 1rem;
+}
+
+#video-4 {
+    left: 7rem;
+    top: 3rem;
+}
+
+.video-btn {
+    width: 30%;
+
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+}
+
+.video-btn p {
+    display: inline-block;
+
+    width: 100%;
+
+    margin-bottom: 1rem;
+    
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/*Kontakt
+===============*/
+
+.kontakt-ul {
+    width: 40%;
+    height: 50vh;
+
+    position: absolute;
+    left: 5rem;
+
+    list-style-type: square;
+}
+
+.kontakt-ul-item {
+    font-size: 1rem;
+    line-height: 2;
+    color: #a5040c;
+}
+
+.kontakt-ul-item span {
+    color: #fff;
+}
+
+.kontakt-ul a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.kontakt-ul a span:hover {
+    color: #a5040c;
+}
+
+.kontakt-icons {
+    display: inline-block;
+
+    margin-left: 1rem;
+}
+
+.kontakt-icons a {
+    display: inline-block;
+
+    margin-left: 1rem;
+}
+
+.kontakt-icons a:hover {
+    color: #a5040c;
+}
+
+
+/*Footer
+===============*/
+
+.footer {
+    width: 100%;
+
+    padding: 2rem 5rem;
+
+    position: relative;
+    bottom: -10rem;
+
+    background-color: #000;
+
+    font-size: 1rem;
+    color: #201b1b;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #201b1b;
+}
+
+.footer a:hover {
+    color: #a5040c;
+}
+
+
+/*Keyframes
+===============*/
+
+@keyframes closer {
+    0% {
+        transform: translate3d(-50%, -20%, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, -20%, 50px);
+    }
+}
+
+@keyframes modal-1 {
+    0% {
+        transform: translateX(500px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes modal-2 {
+    0% {
+        transform: translateX(-500px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
