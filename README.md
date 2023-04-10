@@ -9,4 +9,4 @@
 - has an automatically playing video
 - has 2 modal windows
 
-![preview img](/preview.png)
+![preview img](/preview.img)
