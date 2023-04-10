@@ -1,4 +1,4 @@
-# Quadrot#
+# Quadrot
 ## [Rock band website](https://nastja-ch.github.io/Quadrot/)
 ### A minimalistic website for a rock band, reflecting their style and playing on the symbol contained in their name: the red square.
 
